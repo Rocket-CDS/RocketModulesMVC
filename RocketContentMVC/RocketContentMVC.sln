@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketContentMVC", "RocketContentMVC.csproj", "{4130D773-4930-4C21-9BCF-0C5244F585D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNNrocketAPI", "..\..\DNNrocket\API\DNNrocketAPI.csproj", "{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplisity", "..\..\DNNrocket\Simplisity\Simplisity.csproj", "{AE4279EC-CE7B-1B14-CC69-2D625EAA84EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketContentAPI", "..\..\DNNRocketModules\RocketContentAPI\RocketContentAPI.csproj", "{55937F48-9340-473A-2837-85623D928C7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4130D773-4930-4C21-9BCF-0C5244F585D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4130D773-4930-4C21-9BCF-0C5244F585D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE4279EC-CE7B-1B14-CC69-2D625EAA84EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE4279EC-CE7B-1B14-CC69-2D625EAA84EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55937F48-9340-473A-2837-85623D928C7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55937F48-9340-473A-2837-85623D928C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {836F9207-5501-482C-ABF1-6E3020288FE8}
+	EndGlobalSection
+EndGlobal
