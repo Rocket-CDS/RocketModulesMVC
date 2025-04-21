@@ -1,0 +1,14 @@
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<Nevoweb.RocketDirectoryMVC.Components.MvcData>
+
+<style>
+    body {
+        background: white !important;
+        color: #222 !important;
+    }
+</style>
+
+<div id="simplisity_startpanel" class="simplisity_panel">
+    @Html.Raw(Model.GetSetting("mvc_apptheme"))
+</div>
+
+

@@ -1,6 +1,6 @@
 <root>
-	<version>1.0.0</version>
-  <websitedestrelpath>/DesktopModules/RocketModules/RocketContentMVC</websitedestrelpath>
+	<version>1.0.2</version>
+  <websitedestrelpath>/DesktopModules/RocketModules/RocketDirectoryMVC</websitedestrelpath>
   <websitedestbinrelpath>\bin</websitedestbinrelpath>
   <!-- Include only files that match the regular expression -->
 	<regexpr>(\.cshtml|\.html|\.resx|\.dnn|\.png|\.jpg|\.gif|\.css|.\svg|\.js|\.xml|\.txt|\.md|\.aspx|\.ascx|\.ashx|\.woff|\.woff2|\.ttf)$</regexpr>
@@ -21,11 +21,11 @@
   <file include='false'>
   </file>
   <file include='true'>
-    <value>RocketContentMVC.dnn</value>
+    <value>RocketDirectoryMVC.dnn</value>
 	  <value>icon.png</value>
   </file>
   <assembly>
-    <value>RocketContentMVC.dll</value>
-    <value>RocketContentMVC.pdb</value>
+    <value>RocketDirectoryMVC.dll</value>
+    <value>RocketDirectoryMVC.pdb</value>
   </assembly>
 </root>

@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nevoweb.RocketContentMVC</RootNamespace>
-    <AssemblyName>RocketContentMVC</AssemblyName>
+    <RootNamespace>Nevoweb.RocketDirectoryMVC</RootNamespace>
+    <AssemblyName>RocketDirectoryMVC</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
@@ -129,7 +129,7 @@
     <Content Include="ReleaseNotes.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RocketContentMVC.dnn">
+    <Content Include="RocketDirectoryMVC.dnn">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -137,10 +137,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DNNRocketModules\RocketContentAPI\RocketContentAPI.csproj">
-      <Project>{55937F48-9340-473A-2837-85623D928C7B}</Project>
-      <Name>RocketContentAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\DNNrocket\API\DNNrocketAPI.csproj">
       <Project>{2200f6c3-7d4b-4cdf-908f-dca37adfb121}</Project>
       <Name>DNNrocketAPI</Name>
@@ -157,6 +153,7 @@
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Settings\Settings.cshtml" />
     <Content Include="DNNpackager.dnnpack" />
+    <Content Include="Installation\RocketDirectoryMVC_1.0.2_Install.zip" />
     <Content Include="Views\Edit\Edit.cshtml" />
     <Content Include="Views\RecycleBin\RecycleBin.cshtml" />
     <Content Include="Views\AppTheme\AppTheme.cshtml" />
@@ -169,7 +166,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_LocalResources\" />
-    <Folder Include="Installation\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -187,7 +183,7 @@
           <DevelopmentServerPort>59673</DevelopmentServerPort>
           <DevelopmentServerVPath>
           </DevelopmentServerVPath>
-          <IISUrl>http://dev.rocketcds.me/desktopmodules/mvc/RocketContentMVC</IISUrl>
+          <IISUrl>http://dev.rocketcds.me/desktopmodules/mvc/RocketDirectoryMVC</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://dev.rocketcds.me</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
@@ -201,8 +197,8 @@
   </ProjectExtensions>
   <PropertyGroup>
     <Extension>zip</Extension>
-    <DNNFileName>RocketContentMVC</DNNFileName>
-    <PackageName>RocketContentMVC</PackageName>
+    <DNNFileName>RocketDirectoryMVC</DNNFileName>
+    <PackageName>RocketDirectoryMVC</PackageName>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>DNNpackager.exe  $(ProjectDir) $(ProjectDir)$(OutDir) $(ConfigurationName)</PostBuildEvent>

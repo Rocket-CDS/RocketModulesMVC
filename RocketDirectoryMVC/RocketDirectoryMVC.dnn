@@ -1,9 +1,9 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="RocketContentMVC" type="Module" version="1.0.0">
+    <package name="RocketDirectoryMVC" type="Module" version="00.00.01">
 		<friendlyName> RocketContent MVC</friendlyName>
 		<description>By Nevoweb - [MVC] A complete website content editor with built-in AI and language translation.</description>
-		<iconFile>~/DesktopModules/MVC/RocketContentMVC/icon.png</iconFile>
+		<iconFile>~/DesktopModules/MVC/RocketDirectoryMVC/icon.png</iconFile>
 		<owner>
             <name>David Lee</name>
             <organization>Nevoweb</organization>
@@ -24,7 +24,7 @@
 
 		  <component type="ResourceFile">
 			  <resourceFiles>
-				  <basePath>DesktopModules/MVC/RocketContentMVC</basePath>
+				  <basePath>DesktopModules/MVC/RocketDirectoryMVC</basePath>
 				  <resourceFile>
 					  <name>Resource.zip</name>
 				  </resourceFile>
@@ -35,16 +35,16 @@
 			  <assemblies>
 				  <assembly>
 					  <path>bin</path>
-					  <name>RocketContentMVC.dll</name>
-					  <sourceFileName>RocketContentMVC.dll</sourceFileName>
+					  <name>RocketDirectoryMVC.dll</name>
+					  <sourceFileName>RocketDirectoryMVC.dll</sourceFileName>
 				  </assembly>
 			  </assemblies>
 		  </component>
 
         <component type="Module">
           <desktopModule>
-            <moduleName>RocketContentMVC</moduleName>
-            <foldername>RocketContentMVC</foldername>
+            <moduleName>RocketDirectoryMVC</moduleName>
+            <foldername>RocketDirectoryMVC</foldername>
             <businessControllerClass>DNNrocketAPI.Components.DNNrocketModuleController,DNNrocketAPI</businessControllerClass>
 			  <supportedFeatures>
 				  <supportedFeature type="Portable" />
@@ -53,12 +53,12 @@
 			  </supportedFeatures>
             <moduleDefinitions>
               <moduleDefinition>
-                <friendlyName>RocketContentMVC</friendlyName>
+                <friendlyName>RocketDirectoryMVC</friendlyName>
                 <defaultCacheTime>0</defaultCacheTime>
                 <moduleControls>
                   <moduleControl>
                     <controlKey />
-                    <controlSrc>Nevoweb.RocketContentMVC.Controllers/Item/Index.mvc</controlSrc>
+                    <controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/Item/Index.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle />
                     <controlType>View</controlType>
@@ -68,7 +68,7 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>Edit</controlKey>
-                    <controlSrc>Nevoweb.RocketContentMVC.Controllers/Edit/Edit.mvc</controlSrc>
+                    <controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/Edit/Edit.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle>Edit Content</controlTitle>
                     <controlType>Edit</controlType>
@@ -79,9 +79,9 @@
                   </moduleControl>
                   <moduleControl>
                     <controlKey>Settings</controlKey>
-                    <controlSrc>Nevoweb.RocketContentMVC.Controllers/Settings/Settings.mvc</controlSrc>
+                    <controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/Settings/Settings.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle>RocketContentMVC Settings</controlTitle>
+                    <controlTitle>RocketDirectoryMVC Settings</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -89,9 +89,9 @@
                   </moduleControl>
 					<moduleControl>
 						<controlKey>RecycleBin</controlKey>
-						<controlSrc>Nevoweb.RocketContentMVC.Controllers/RecycleBin/RecycleBin.mvc</controlSrc>
+						<controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/RecycleBin/RecycleBin.mvc</controlSrc>
 						<supportsPartialRendering>False</supportsPartialRendering>
-						<controlTitle>RocketContentMVC RecycleBin</controlTitle>
+						<controlTitle>RocketDirectoryMVC RecycleBin</controlTitle>
 						<controlType>Edit</controlType>
 						<iconFile />
 						<helpUrl />
@@ -99,9 +99,9 @@
 					</moduleControl>
 					<moduleControl>
 						<controlKey>AppTheme</controlKey>
-						<controlSrc>Nevoweb.RocketContentMVC.Controllers/AppTheme/AppTheme.mvc</controlSrc>
+						<controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/AppTheme/AppTheme.mvc</controlSrc>
 						<supportsPartialRendering>False</supportsPartialRendering>
-						<controlTitle>RocketContentMVC AppTheme</controlTitle>
+						<controlTitle>RocketDirectoryMVC AppTheme</controlTitle>
 						<controlType>Edit</controlType>
 						<iconFile />
 						<helpUrl />
