@@ -11,36 +11,21 @@
 */
 
 using DNNrocketAPI.Components;
-using DotNetNuke.Collections;
-using DotNetNuke.Entities.Users;
-using DotNetNuke.Framework.JavaScriptLibraries;
-using DotNetNuke.UI.UserControls;
+using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
-using DotNetNuke.Web.Mvc.Helpers;
 using Nevoweb.RocketDirectoryMVC.Components;
-using Nevoweb.RocketDirectoryMVC.Models;
-using Rocket.AppThemes.Components;
-using RocketContentAPI.Components;
-using RocketPortal.Components;
+using RocketDirectoryAPI.Components;
 using Simplisity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting.Contexts;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.WebSockets;
 
 namespace Nevoweb.RocketDirectoryMVC.Controllers
 {
     [DnnHandleError]
     public class AppThemeController : DnnController
     {
-        public const string _systemkey = "rocketcontentapi";
+        public string _systemkey;
         public bool _hasEditAccess;
         public string _moduleRef;
         public SessionParams _sessionParam;
@@ -49,27 +34,24 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
         public int _moduleId;
         public int _portalId;
 
+        [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
+        [DnnHandleError]
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);
 
             var context = requestContext.HttpContext;
-            var urlparams = new Dictionary<string, string>();
-            foreach (string key in context.Request.QueryString.AllKeys)
-            {
-                if (key != null)
-                {
-                    var keyValue = context.Request.QueryString[key];
-                    urlparams.Add(key, keyValue);
-                }
-            }
 
-            string skinSrcAdmin = "?SkinSrc=rocketedit";
-            if (!urlparams.ContainsKey("SkinSrc") || urlparams["SkinSrc"] == "")
+            string skinSrcAdmin = "?SkinSrc=rocketadmin";
+            if (DNNrocketUtils.RequestParam(context, "SkinSrc") == "")
             {
                 Response.Redirect(ModuleContext.EditUrl("AppTheme") + skinSrcAdmin, false);
                 context.ApplicationInstance.CompleteRequest(); // do this to stop iis throwing error
             }
+
+            // Get systemkey from module name. (remove mod/mvc, add "API")
+            var moduleName = ModuleContext.Configuration.DesktopModule.ModuleName;
+            _systemkey = moduleName.ToLower().Substring(0, moduleName.Length - 3) + "api";
 
             _moduleId = ModuleContext.ModuleId;
             _tabId = ModuleContext.TabId;
@@ -85,14 +67,15 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
 
             PageIncludes.RemoveCssFile(DnnPage, "skin.css"); //DNN always tries to load a skin.css, even if it does not exists.
 
-            var strHeader1 = RocketContentAPIUtils.DisplaySystemView(_portalId, _moduleRef, _sessionParam, "AdminHeader.cshtml");
+            var strHeader1 = RocketDirectoryAPIUtils.DisplaySystemView(_portalId, _systemkey, _moduleRef, _sessionParam, "AppThemeHeader.cshtml");
             PageIncludes.IncludeTextInHeader(DnnPage, strHeader1);
 
         }
 
+        [HttpGet]
         public ActionResult AppTheme()
         {
-            var strOut = RocketContentAPIUtils.DisplaySystemView(_portalId, _moduleRef, _sessionParam, "AppThemeAdmin.cshtml", true, false);
+            var strOut = RocketDirectoryAPIUtils.DisplaySystemView(_portalId, _systemkey, _moduleRef, _sessionParam, "AppThemeAdmin.cshtml", true);
 
             var s = new MvcData();
             s.SetSetting("mvc_apptheme", strOut);

@@ -113,12 +113,10 @@
   <ItemGroup>
     <Compile Include="Components\MvcData.cs" />
     <Compile Include="Controllers\AppThemeController.cs" />
-    <Compile Include="Controllers\RecycleBinController.cs" />
+    <Compile Include="Controllers\AdminPanelController.cs" />
     <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
-    <Compile Include="Models\Item.cs" />
     <Compile Include="Controllers\ItemController.cs" />
-    <Compile Include="Models\Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +135,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DNNRocketModules\RocketDirectoryAPI\RocketDirectoryAPI.csproj">
+      <Project>{5fbcd77f-5f8d-fb39-76dd-efe035d15b1a}</Project>
+      <Name>RocketDirectoryAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\DNNrocket\API\DNNrocketAPI.csproj">
       <Project>{2200f6c3-7d4b-4cdf-908f-dca37adfb121}</Project>
       <Name>DNNrocketAPI</Name>
@@ -155,8 +157,8 @@
     <Content Include="DNNpackager.dnnpack" />
     <Content Include="Installation\RocketDirectoryMVC_1.0.2_Install.zip" />
     <Content Include="Views\Edit\Edit.cshtml" />
-    <Content Include="Views\RecycleBin\RecycleBin.cshtml" />
     <Content Include="Views\AppTheme\AppTheme.cshtml" />
+    <Content Include="Views\AdminPanel\AdminPanel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -178,19 +180,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>False</AutoAssignPort>
-          <DevelopmentServerPort>59673</DevelopmentServerPort>
-          <DevelopmentServerVPath>
-          </DevelopmentServerVPath>
-          <IISUrl>http://dev.rocketcds.me/desktopmodules/mvc/RocketDirectoryMVC</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://dev.rocketcds.me</IISAppRootUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

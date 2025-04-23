@@ -14,6 +14,7 @@ using DNNrocketAPI.Components;
 using DotNetNuke.Collections;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Framework.JavaScriptLibraries;
+using DotNetNuke.Services.Journal;
 using DotNetNuke.UI.UserControls;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
@@ -29,6 +30,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting.Contexts;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.UI;
@@ -48,13 +50,14 @@ namespace Nevoweb.RocketContentMVC.Controllers
         public int _tabId;
         public int _moduleId;
         public int _portalId;
+        public HttpContextBase _context;
 
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);
             Url = new DnnUrlHelper(requestContext, this);
 
-            var context = requestContext.HttpContext;
+            _context = requestContext.HttpContext;
 
             _hasEditAccess = false;
             if (User.UserID > 0) _hasEditAccess = DotNetNuke.Security.Permissions.ModulePermissionController.CanEditModuleContent(ModuleContext.Configuration);
@@ -64,16 +67,14 @@ namespace Nevoweb.RocketContentMVC.Controllers
             _portalId = ModuleContext.PortalId;
             _moduleRef = _portalId + "_ModuleID_" + _moduleId;
 
-            var urlparams = new Dictionary<string, string>();
             var paramInfo = new SimplisityInfo();
             // get all query string params
-            foreach (string key in context.Request.QueryString.AllKeys)
+            foreach (string key in _context.Request.QueryString.AllKeys)
             {
                 if (key != null)
                 {
-                    var keyValue = context.Request.QueryString[key];
+                    var keyValue = _context.Request.QueryString[key];
                     paramInfo.SetXmlProperty("genxml/urlparams/" + key.ToLower(), keyValue);
-                    urlparams.Add(key, keyValue);
                 }
             }
 
@@ -125,7 +126,7 @@ namespace Nevoweb.RocketContentMVC.Controllers
                     userParams.Set("appthemeurl", ModuleContext.EditUrl("AppTheme"));
                     userParams.Set("adminpanelurl", ModuleContext.EditUrl("AdminPanel"));
                     userParams.Set("recyclebinurl", ModuleContext.EditUrl("RecycleBin"));
-                    userParams.Set("viewurl", Url.ToString()); // Legacy
+                    userParams.Set("viewurl", _context.Request.Url.AbsoluteUri); // Legacy
                     userParams.Set("viewtabid", this.PortalSettings.ActiveTab.TabID.ToString());
 
                     viewButtonsOut = RocketContentAPIUtils.DisplaySystemView(_portalId, _moduleRef, _sessionParam, "ViewEditButtons.cshtml", true, false);

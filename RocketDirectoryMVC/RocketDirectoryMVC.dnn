@@ -1,8 +1,8 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="RocketDirectoryMVC" type="Module" version="00.00.01">
-		<friendlyName> RocketContent MVC</friendlyName>
-		<description>By Nevoweb - [MVC] A complete website content editor with built-in AI and language translation.</description>
+    <package name="RocketDirectoryMVC" type="Module" version="1.0.0">
+		<friendlyName> RocketDirectory MVC</friendlyName>
+		<description>By Nevoweb - A complete website content editor with built-in AI and language translation.</description>
 		<iconFile>~/DesktopModules/MVC/RocketDirectoryMVC/icon.png</iconFile>
 		<owner>
             <name>David Lee</name>
@@ -70,7 +70,7 @@
                     <controlKey>Edit</controlKey>
                     <controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/Edit/Edit.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle>Edit Content</controlTitle>
+                    <controlTitle>Edit</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
@@ -81,33 +81,32 @@
                     <controlKey>Settings</controlKey>
                     <controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/Settings/Settings.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
-                    <controlTitle>RocketDirectoryMVC Settings</controlTitle>
+                    <controlTitle>Settings</controlTitle>
                     <controlType>Edit</controlType>
                     <iconFile />
                     <helpUrl />
                     <viewOrder>0</viewOrder>
                   </moduleControl>
 					<moduleControl>
-						<controlKey>RecycleBin</controlKey>
-						<controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/RecycleBin/RecycleBin.mvc</controlSrc>
+						<controlKey>AppTheme</controlKey>
+						<controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/AppTheme/AppTheme.mvc</controlSrc>
 						<supportsPartialRendering>False</supportsPartialRendering>
-						<controlTitle>RocketDirectoryMVC RecycleBin</controlTitle>
+						<controlTitle>AppTheme</controlTitle>
 						<controlType>Edit</controlType>
 						<iconFile />
 						<helpUrl />
 						<viewOrder>0</viewOrder>
 					</moduleControl>
 					<moduleControl>
-						<controlKey>AppTheme</controlKey>
-						<controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/AppTheme/AppTheme.mvc</controlSrc>
+						<controlKey>AdminPanel</controlKey>
+						<controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/AdminPanel/AdminPanel.mvc</controlSrc>
 						<supportsPartialRendering>False</supportsPartialRendering>
-						<controlTitle>RocketDirectoryMVC AppTheme</controlTitle>
+						<controlTitle>AdminPanel</controlTitle>
 						<controlType>Edit</controlType>
 						<iconFile />
 						<helpUrl />
 						<viewOrder>0</viewOrder>
 					</moduleControl>
-
 
 
 				</moduleControls>
