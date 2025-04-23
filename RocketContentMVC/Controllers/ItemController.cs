@@ -11,31 +11,17 @@
 */
 
 using DNNrocketAPI.Components;
-using DotNetNuke.Collections;
-using DotNetNuke.Entities.Users;
-using DotNetNuke.Framework.JavaScriptLibraries;
-using DotNetNuke.Services.Journal;
-using DotNetNuke.UI.UserControls;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using DotNetNuke.Web.Mvc.Helpers;
 using Nevoweb.RocketContentMVC.Components;
-using Nevoweb.RocketContentMVC.Models;
 using Rocket.AppThemes.Components;
 using RocketContentAPI.Components;
 using RocketPortal.Components;
 using Simplisity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.WebSockets;
 
 namespace Nevoweb.RocketContentMVC.Controllers
 {
@@ -120,8 +106,12 @@ namespace Nevoweb.RocketContentMVC.Controllers
                     parameters[0] = string.Format("{0}={1}", "ModuleId", _moduleId.ToString());
                     var settingsurl = DNNrocketUtils.NavigateURL(this.PortalSettings.ActiveTab.TabID, "Module", _sessionParam.CultureCode, parameters).ToString();
 
+                    var editParam = new string[1];
+                    editParam[0] = string.Format("{0}={1}", "mid", _moduleId.ToString());
+                    var editurl = DNNrocketUtils.NavigateURL(_tabId, "Edit", _sessionParam.CultureCode, editParam).ToString();
+
                     var userParams = new UserParams("ModuleID:" + _moduleId, true);
-                    userParams.Set("editurl", ModuleContext.EditUrl());
+                    userParams.Set("editurl", editurl);
                     userParams.Set("settingsurl", settingsurl);
                     userParams.Set("appthemeurl", ModuleContext.EditUrl("AppTheme"));
                     userParams.Set("adminpanelurl", ModuleContext.EditUrl("AdminPanel"));

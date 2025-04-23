@@ -11,32 +11,19 @@
 */
 
 using DNNrocketAPI.Components;
-using DotNetNuke.Collections;
-using DotNetNuke.Entities.Users;
-using DotNetNuke.Framework.JavaScriptLibraries;
-using DotNetNuke.UI.UserControls;
+using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
-using DotNetNuke.Web.Mvc.Helpers;
 using Nevoweb.RocketContentMVC.Components;
-using Nevoweb.RocketContentMVC.Models;
-using Rocket.AppThemes.Components;
 using RocketContentAPI.Components;
-using RocketPortal.Components;
 using Simplisity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting.Contexts;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.WebSockets;
 
 namespace Nevoweb.RocketContentMVC.Controllers
 {
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
     [DnnHandleError]
     public class RecycleBinController : DnnController
     {
@@ -65,7 +52,7 @@ namespace Nevoweb.RocketContentMVC.Controllers
             }
 
             string skinSrcAdmin = "?SkinSrc=rocketedit";
-            if (!urlparams.ContainsKey("SkinSrc") || urlparams["SkinSrc"] == "")
+            if (DNNrocketUtils.RequestParam(context, "SkinSrc") == "")
             {
                 Response.Redirect(ModuleContext.EditUrl("RecycleBin") + skinSrcAdmin, false);
                 context.ApplicationInstance.CompleteRequest(); // do this to stop iis throwing error

@@ -11,6 +11,7 @@
 */
 
 using DNNrocketAPI.Components;
+using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using Nevoweb.RocketContentMVC.Components;
@@ -22,6 +23,7 @@ using System.Web.Routing;
 
 namespace Nevoweb.RocketContentMVC.Controllers
 {
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
     [DnnHandleError]
     public class AppThemeController : DnnController
     {
@@ -50,7 +52,7 @@ namespace Nevoweb.RocketContentMVC.Controllers
             }
 
             string skinSrcAdmin = "?SkinSrc=rocketedit";
-            if (!urlparams.ContainsKey("SkinSrc") || urlparams["SkinSrc"] == "")
+            if (DNNrocketUtils.RequestParam(context, "SkinSrc") == "")
             {
                 Response.Redirect(ModuleContext.EditUrl("AppTheme") + skinSrcAdmin, false);
                 context.ApplicationInstance.CompleteRequest(); // do this to stop iis throwing error

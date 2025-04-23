@@ -116,9 +116,7 @@
     <Compile Include="Controllers\RecycleBinController.cs" />
     <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
-    <Compile Include="Models\Item.cs" />
     <Compile Include="Controllers\ItemController.cs" />
-    <Compile Include="Models\Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

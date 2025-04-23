@@ -11,32 +11,19 @@
 */
 
 using DNNrocketAPI.Components;
-using DotNetNuke.Collections;
-using DotNetNuke.Entities.Users;
-using DotNetNuke.Framework.JavaScriptLibraries;
-using DotNetNuke.UI.UserControls;
+using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
-using DotNetNuke.Web.Mvc.Helpers;
 using Nevoweb.RocketContentMVC.Components;
-using Nevoweb.RocketContentMVC.Models;
-using Rocket.AppThemes.Components;
 using RocketContentAPI.Components;
-using RocketPortal.Components;
 using Simplisity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting.Contexts;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.WebSockets;
 
 namespace Nevoweb.RocketContentMVC.Controllers
 {
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
     [DnnHandleError]
     public class EditController : DnnController
     {
@@ -53,6 +40,11 @@ namespace Nevoweb.RocketContentMVC.Controllers
         {
             base.Initialize(requestContext);
 
+            _moduleId = ModuleContext.ModuleId;
+            _tabId = ModuleContext.TabId;
+            _portalId = ModuleContext.PortalId;
+            _moduleRef = _portalId + "_ModuleID_" + _moduleId;
+
             var context = requestContext.HttpContext;
             var urlparams = new Dictionary<string, string>();
             foreach (string key in context.Request.QueryString.AllKeys)
@@ -64,17 +56,14 @@ namespace Nevoweb.RocketContentMVC.Controllers
                 }
             }
 
-            string skinSrcAdmin = "?SkinSrc=rocketedit";
-            if (!urlparams.ContainsKey("SkinSrc") || urlparams["SkinSrc"] == "")
+            if (DNNrocketUtils.RequestParam(context, "SkinSrc") == "")
             {
-                Response.Redirect(ModuleContext.EditUrl() + skinSrcAdmin, false);
+                var editParam = new string[1];
+                editParam[0] = string.Format("{0}={1}", "mid", _moduleId.ToString());
+                var editurl = DNNrocketUtils.NavigateURL(_tabId, "Edit", DNNrocketUtils.GetCurrentCulture(), editParam).ToString() + "?SkinSrc=rocketedit";
+                Response.Redirect(editurl, false);
                 context.ApplicationInstance.CompleteRequest(); // do this to stop iis throwing error
             }
-
-            _moduleId = ModuleContext.ModuleId;
-            _tabId = ModuleContext.TabId;
-            _portalId = ModuleContext.PortalId;
-            _moduleRef = _portalId + "_ModuleID_" + _moduleId;
 
             _sessionParam = new SessionParams(new SimplisityInfo());
             _sessionParam.TabId = _tabId;

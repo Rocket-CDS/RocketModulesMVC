@@ -22,6 +22,7 @@ using System.Web.Routing;
 
 namespace Nevoweb.RocketDirectoryMVC.Controllers
 {
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
     [DnnHandleError]
     public class AppThemeController : DnnController
     {
@@ -34,8 +35,6 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
         public int _moduleId;
         public int _portalId;
 
-        [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
-        [DnnHandleError]
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);

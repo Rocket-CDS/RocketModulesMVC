@@ -11,6 +11,7 @@
 */
 
 using DNNrocketAPI.Components;
+using DotNetNuke.Security;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using Nevoweb.RocketDirectoryMVC.Components;
@@ -21,6 +22,7 @@ using System.Web.Routing;
 
 namespace Nevoweb.RocketDirectoryMVC.Controllers
 {
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
     [DnnHandleError]
     public class EditController : DnnController
     {

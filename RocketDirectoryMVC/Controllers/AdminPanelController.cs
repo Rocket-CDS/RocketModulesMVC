@@ -17,11 +17,13 @@ using DotNetNuke.Web.Mvc.Framework.Controllers;
 using Nevoweb.RocketDirectoryMVC.Components;
 using RocketDirectoryAPI.Components;
 using Simplisity;
+using System.Runtime.Remoting.Contexts;
 using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Nevoweb.RocketDirectoryMVC.Controllers
 {
+    [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
     [DnnHandleError]
     public class AdminPanelController : DnnController
     {
@@ -34,8 +36,6 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
         public int _portalId;
         private string _articleId;
 
-        [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Edit)]
-        [DnnHandleError]
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);
@@ -52,9 +52,9 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
             if (DNNrocketUtils.RequestParam(context, "SkinSrc") == "")
             {
                 if (_articleId == null || _articleId == "")
-                    Response.Redirect(ModuleContext.EditUrl("AdminPanel") + skinSrcAdmin, false);
+                    Response.Redirect(ModuleContext.EditUrl(DNNrocketUtils.RequestParam(context, "ctl")) + skinSrcAdmin, false);
                 else
-                    Response.Redirect(ModuleContext.EditUrl("articleid", _articleId, "AdminPanel") + skinSrcAdmin, false);
+                    Response.Redirect(ModuleContext.EditUrl("articleid", _articleId, DNNrocketUtils.RequestParam(context, "ctl")) + skinSrcAdmin, false);
                 context.ApplicationInstance.CompleteRequest(); // do this to stop iis throwing error
             }
 
