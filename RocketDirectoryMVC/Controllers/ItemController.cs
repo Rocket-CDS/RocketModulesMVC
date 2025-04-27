@@ -97,9 +97,11 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
                 _sessionParam.CultureCode = DNNrocketUtils.GetCurrentCulture();
                 _sessionParam.Url = _context.Request.Url.AbsoluteUri;
                 _sessionParam.UrlFriendly = DNNrocketUtils.NavigateURL(_tabId, _urlparams);
-                _sessionParam.SearchText = DNNrocketUtils.RequestParam(_context, "search");
-                var pageParam = DNNrocketUtils.RequestParam(_context, "page");
-                if (GeneralUtils.IsNumeric(pageParam))  _sessionParam.Page = Convert.ToInt32(pageParam);
+
+                var searchUrlParam = DNNrocketUtils.RequestParam(_context, "search");
+                if (!String.IsNullOrEmpty(searchUrlParam)) _sessionParam.SearchText = searchUrlParam;
+                var pageUrlParam = DNNrocketUtils.RequestParam(_context, "page");
+                if (GeneralUtils.IsNumeric(pageUrlParam)) _sessionParam.Page = Convert.ToInt32(pageUrlParam);
 
                 _moduleSettings = new ModuleContentLimpet(_portalId, _moduleRef, _systemkey, _sessionParam.ModuleId, _sessionParam.TabId);
 

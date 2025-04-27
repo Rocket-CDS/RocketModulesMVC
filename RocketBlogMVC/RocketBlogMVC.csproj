@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{515CDFDB-002B-4A38-82A4-659D41C3FEE8}</ProjectGuid>
+    <ProjectGuid>{4130D773-4930-4C21-9BCF-0C5244F585D0}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nevoweb.RocketContentMVC</RootNamespace>
-    <AssemblyName>RocketContentMVC</AssemblyName>
+    <RootNamespace>Nevoweb.RocketBlogMVC</RootNamespace>
+    <AssemblyName>RocketBlogMVC</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
@@ -111,23 +111,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\MvcData.cs" />
-    <Compile Include="Controllers\AppThemeController.cs" />
-    <Compile Include="Controllers\RecycleBinController.cs" />
-    <Compile Include="Controllers\EditController.cs" />
-    <Compile Include="Controllers\SettingsController.cs" />
-    <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Documentation\Documentation.css" />
-    <Content Include="Documentation\Documentation.html" />
-    <Content Include="icon.png" />
-    <Content Include="module.css" />
     <Content Include="ReleaseNotes.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RocketContentMVC.dnn">
+    <Content Include="RocketBlogMVC.dnn">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
@@ -135,9 +125,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DNNRocketModules\RocketContentAPI\RocketContentAPI.csproj">
-      <Project>{55937F48-9340-473A-2837-85623D928C7B}</Project>
-      <Name>RocketContentAPI</Name>
+    <ProjectReference Include="..\..\DNNRocketModules\RocketDirectoryAPI\RocketDirectoryAPI.csproj">
+      <Project>{5fbcd77f-5f8d-fb39-76dd-efe035d15b1a}</Project>
+      <Name>RocketDirectoryAPI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DNNrocket\API\DNNrocketAPI.csproj">
       <Project>{2200f6c3-7d4b-4cdf-908f-dca37adfb121}</Project>
@@ -152,12 +142,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\Item\Index.cshtml" />
-    <Content Include="Views\Settings\Settings.cshtml" />
     <Content Include="DNNpackager.dnnpack" />
-    <Content Include="Views\Edit\Edit.cshtml" />
-    <Content Include="Views\RecycleBin\RecycleBin.cshtml" />
-    <Content Include="Views\AppTheme\AppTheme.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -187,8 +172,8 @@
   </ProjectExtensions>
   <PropertyGroup>
     <Extension>zip</Extension>
-    <DNNFileName>RocketContentMVC</DNNFileName>
-    <PackageName>RocketContentMVC</PackageName>
+    <DNNFileName>RocketBlogMVC</DNNFileName>
+    <PackageName>RocketBlogMVC</PackageName>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>DNNpackager.exe  $(ProjectDir) $(ProjectDir)$(OutDir) $(ConfigurationName)</PostBuildEvent>
