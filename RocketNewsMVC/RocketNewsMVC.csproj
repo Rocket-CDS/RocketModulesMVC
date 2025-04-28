@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nevoweb.RocketBlogMVC</RootNamespace>
-    <AssemblyName>RocketBlogMVC</AssemblyName>
+    <RootNamespace>Nevoweb.RocketNewsMVC</RootNamespace>
+    <AssemblyName>RocketNewsMVC</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
@@ -168,8 +168,8 @@
   </ProjectExtensions>
   <PropertyGroup>
     <Extension>zip</Extension>
-    <DNNFileName>RocketBlogMVC</DNNFileName>
-    <PackageName>RocketBlogMVC</PackageName>
+    <DNNFileName>RocketNewsMVC</DNNFileName>
+    <PackageName>RocketNewsMVC</PackageName>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>DNNpackager.exe  $(ProjectDir) $(ProjectDir)$(OutDir) $(ConfigurationName)</PostBuildEvent>
