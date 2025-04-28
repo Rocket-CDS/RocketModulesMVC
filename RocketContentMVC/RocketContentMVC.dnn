@@ -3,7 +3,7 @@
     <package name="RocketContentMVC" type="Module" version="1.0.0">
 		<friendlyName> RocketContent MVC</friendlyName>
 		<description>By Nevoweb - [MVC] A complete website content editor with built-in AI and language translation.</description>
-		<iconFile>~/DesktopModules/MVC/RocketContentMVC/icon.png</iconFile>
+		<iconFile>~/DesktopModules/MVC/Rocket/RocketContentMVC/icon.png</iconFile>
 		<owner>
             <name>David Lee</name>
             <organization>Nevoweb</organization>
@@ -24,7 +24,7 @@
 
 		  <component type="ResourceFile">
 			  <resourceFiles>
-				  <basePath>DesktopModules/MVC/RocketContentMVC</basePath>
+				  <basePath>DesktopModules/MVC/Rocket/RocketContentMVC</basePath>
 				  <resourceFile>
 					  <name>Resource.zip</name>
 				  </resourceFile>
@@ -44,7 +44,7 @@
         <component type="Module">
           <desktopModule>
             <moduleName>RocketContentMVC</moduleName>
-            <foldername>RocketContentMVC</foldername>
+            <foldername>Rocket\RocketContentMVC</foldername>
             <businessControllerClass>DNNrocketAPI.Components.DNNrocketModuleController,DNNrocketAPI</businessControllerClass>
 			  <supportedFeatures>
 				  <supportedFeature type="Portable" />

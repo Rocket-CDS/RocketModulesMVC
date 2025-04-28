@@ -43,32 +43,13 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetNuke, Version=9.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\DotNetNuke.dll</HintPath>
+    <Reference Include="DotNetNuke">
+      <HintPath>..\..\..\DNNrocket\API\_external\DotNetNuke.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetNuke.Web.Mvc, Version=9.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\DotNetNuke.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    <Reference Include="DotNetNuke.Web.Mvc">
+      <HintPath>..\..\..\DNNrocket\API\_external\DotNetNuke.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="RocketAppThemes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DNNrocket\RocketAppTheme\bin\Debug\netstandard2.0\RocketAppThemes.dll</HintPath>
-    </Reference>
-    <Reference Include="RocketPortal, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\DNNrocket\RocketPortal\bin\Debug\netstandard2.0\RocketPortal.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -78,28 +59,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\bin\System.Web.Helpers.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\bin\System.Web.Mvc.dll</HintPath>
+      <HintPath>..\..\..\DNNrocket\API\_external\System.Web.Mvc.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\bin\System.Web.Razor.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\bin\System.Web.WebPages.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\bin\System.Web.WebPages.Deployment.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\bin\System.Web.WebPages.Razor.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -135,20 +100,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DNNRocketModules\RocketContentAPI\RocketContentAPI.csproj">
-      <Project>{55937F48-9340-473A-2837-85623D928C7B}</Project>
-      <Name>RocketContentAPI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DNNrocket\API\DNNrocketAPI.csproj">
-      <Project>{2200f6c3-7d4b-4cdf-908f-dca37adfb121}</Project>
-      <Name>DNNrocketAPI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DNNrocket\Simplisity\Simplisity.csproj">
-      <Project>{ae4279ec-ce7b-1b14-cc69-2d625eaa84ec}</Project>
-      <Name>Simplisity</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -168,6 +119,28 @@
   <ItemGroup>
     <Folder Include="App_LocalResources\" />
     <Folder Include="Installation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DNNrocketModules\RocketContentAPI\RocketContentAPI.csproj">
+      <Project>{f21c301c-6f9b-44d2-8fdd-ef8d4c95065c}</Project>
+      <Name>RocketContentAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DNNrocket\API\DNNrocketAPI.csproj">
+      <Project>{2200f6c3-7d4b-4cdf-908f-dca37adfb121}</Project>
+      <Name>DNNrocketAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DNNrocket\RocketAppTheme\AppThemes.csproj">
+      <Project>{fee43e2d-5984-4c06-95c9-3732ec812e7b}</Project>
+      <Name>AppThemes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DNNrocket\RocketPortal\RocketPortal.csproj">
+      <Project>{722bc7cd-3d90-41b4-87b1-b8750deaf4c9}</Project>
+      <Name>RocketPortal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DNNrocket\Simplisity\Simplisity.csproj">
+      <Project>{3375ee09-5417-44de-941f-f85d156a355a}</Project>
+      <Name>Simplisity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

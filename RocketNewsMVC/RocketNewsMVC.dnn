@@ -4,7 +4,7 @@
 		<friendlyName> RocketNews MVC</friendlyName>
 		<DefinitionName>RocketNewsMVC</DefinitionName>
 		<description>By Nevoweb - A complete website content editor with built-in AI and language translation.</description>
-		<iconFile>~/DesktopModules/MVC/RocketDirectoryMVC/icon.png</iconFile>
+		<iconFile>~/DesktopModules/MVC/Rocket/RocketDirectoryMVC/icon.png</iconFile>
 		<owner>
             <name>David Lee</name>
             <organization>Nevoweb</organization>
@@ -27,7 +27,7 @@
 
 		  <component type="ResourceFile">
 			  <resourceFiles>
-				  <basePath>DesktopModules/MVC/RocketNewsMVC</basePath>
+				  <basePath>DesktopModules/MVC/Rocket/RocketNewsMVC</basePath>
 				  <resourceFile>
 					  <name>Resource.zip</name>
 				  </resourceFile>
@@ -37,7 +37,7 @@
         <component type="Module">
           <desktopModule>
             <moduleName>RocketNewsMVC</moduleName>
-            <foldername>RocketDirectoryMVC</foldername>
+            <foldername>Rocket/RocketDirectoryMVC</foldername>
             <businessControllerClass>DNNrocketAPI.Components.DNNrocketModuleController,DNNrocketAPI</businessControllerClass>
 			  <supportedFeatures>
 				  <supportedFeature type="Portable" />
