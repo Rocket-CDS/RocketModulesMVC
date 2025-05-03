@@ -139,7 +139,7 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
                 string[] parameters;
                 parameters = new string[1];
                 parameters[0] = string.Format("{0}={1}", "ModuleId", _moduleId.ToString());
-                var redirectUrl = DNNrocketUtils.NavigateURL(this.PortalSettings.ActiveTab.TabID, "Module", _sessionParam.CultureCode, parameters).ToString();
+                var redirectUrl = DNNrocketUtils.NavigateURL(_tabId, "Module", _sessionParam.CultureCode, parameters).ToString();
                 strOut = strOut.Replace("{redirecturl}", redirectUrl);
                 CacheUtils.ClearAllCache(_systemkey + _portalId);
             }
@@ -154,7 +154,7 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
                     string[] parameters;
                     parameters = new string[1];
                     parameters[0] = string.Format("{0}={1}", "ModuleId", _moduleId.ToString());
-                    var settingsurl = DNNrocketUtils.NavigateURL(this.PortalSettings.ActiveTab.TabID, "Module", _sessionParam.CultureCode, parameters).ToString();
+                    var settingsurl = DNNrocketUtils.NavigateURL(_tabId, "Module", _sessionParam.CultureCode, parameters).ToString();
 
                     var userParams = new UserParams("ModuleID:" + _moduleId, true);
                     if (GeneralUtils.IsNumeric(articleid))
@@ -166,7 +166,7 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
                     userParams.Set("appthemeurl", ModuleContext.EditUrl("AppTheme"));
                     userParams.Set("adminpanelurl", ModuleContext.EditUrl("AdminPanel"));
                     userParams.Set("viewurl", Url.ToString()); // Legacy
-                    userParams.Set("viewtabid", this.PortalSettings.ActiveTab.TabID.ToString());
+                    userParams.Set("viewtabid", _tabId.ToString());
 
                     viewButtonsOut = RocketDirectoryAPIUtils.DisplaySystemView(_portalId, _systemkey, _moduleRef, _sessionParam, "ViewEditButtons.cshtml");
                     CacheUtils.SetCache("editbuttons" + _moduleRef, viewButtonsOut, _moduleRef);

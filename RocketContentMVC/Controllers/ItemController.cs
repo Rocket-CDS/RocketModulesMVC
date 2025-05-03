@@ -91,7 +91,7 @@ namespace Nevoweb.RocketContentMVC.Controllers
                 string[] parameters;
                 parameters = new string[1];
                 parameters[0] = string.Format("{0}={1}", "ModuleId", _moduleId.ToString());
-                var redirectUrl = DNNrocketUtils.NavigateURL(this.PortalSettings.ActiveTab.TabID, "Module", _sessionParam.CultureCode, parameters).ToString();
+                var redirectUrl = DNNrocketUtils.NavigateURL(_tabId, "Module", _sessionParam.CultureCode, parameters).ToString();
                 strOut = strOut.Replace("{redirecturl}", redirectUrl);
                 CacheUtils.ClearAllCache(_moduleRef);
             }
@@ -104,7 +104,7 @@ namespace Nevoweb.RocketContentMVC.Controllers
                     string[] parameters;
                     parameters = new string[1];
                     parameters[0] = string.Format("{0}={1}", "ModuleId", _moduleId.ToString());
-                    var settingsurl = DNNrocketUtils.NavigateURL(this.PortalSettings.ActiveTab.TabID, "Module", _sessionParam.CultureCode, parameters).ToString();
+                    var settingsurl = DNNrocketUtils.NavigateURL(_tabId, "Module", _sessionParam.CultureCode, parameters).ToString();
 
                     var editParam = new string[1];
                     editParam[0] = string.Format("{0}={1}", "mid", _moduleId.ToString());
@@ -117,7 +117,7 @@ namespace Nevoweb.RocketContentMVC.Controllers
                     userParams.Set("adminpanelurl", ModuleContext.EditUrl("AdminPanel"));
                     userParams.Set("recyclebinurl", ModuleContext.EditUrl("RecycleBin"));
                     userParams.Set("viewurl", _context.Request.Url.AbsoluteUri); // Legacy
-                    userParams.Set("viewtabid", this.PortalSettings.ActiveTab.TabID.ToString());
+                    userParams.Set("viewtabid", _tabId.ToString());
 
                     viewButtonsOut = RocketContentAPIUtils.DisplaySystemView(_portalId, _moduleRef, _sessionParam, "ViewEditButtons.cshtml", true, false);
                     CacheUtils.SetCache(editbuttonkey, viewButtonsOut, _moduleRef);

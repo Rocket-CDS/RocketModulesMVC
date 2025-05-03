@@ -127,7 +127,6 @@
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Settings\Settings.cshtml" />
     <Content Include="DNNpackager.dnnpack" />
-    <Content Include="Installation\RocketDirectoryMVC_1.0.2_Install.zip" />
     <Content Include="Views\Edit\Edit.cshtml" />
     <Content Include="Views\AppTheme\AppTheme.cshtml" />
     <Content Include="Views\AdminPanel\AdminPanel.cshtml" />
@@ -140,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_LocalResources\" />
+    <Folder Include="Installation\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
