@@ -125,20 +125,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DNNRocketModules\RocketDirectoryAPI\RocketDirectoryAPI.csproj">
-      <Project>{5fbcd77f-5f8d-fb39-76dd-efe035d15b1a}</Project>
-      <Name>RocketDirectoryAPI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DNNrocket\API\DNNrocketAPI.csproj">
-      <Project>{2200f6c3-7d4b-4cdf-908f-dca37adfb121}</Project>
-      <Name>DNNrocketAPI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DNNrocket\Simplisity\Simplisity.csproj">
-      <Project>{ae4279ec-ce7b-1b14-cc69-2d625eaa84ec}</Project>
-      <Name>Simplisity</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -153,6 +139,12 @@
   <ItemGroup>
     <Folder Include="App_LocalResources\" />
     <Folder Include="Installation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DNNRocketModules\RocketDirectoryAPI\RocketDirectoryAPI.csproj">
+      <Project>{e64113c5-2029-aaff-2f38-8d33c083b659}</Project>
+      <Name>RocketDirectoryAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

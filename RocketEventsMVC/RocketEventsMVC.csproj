@@ -124,7 +124,7 @@
       <Project>{5fbcd77f-5f8d-fb39-76dd-efe035d15b1a}</Project>
       <Name>RocketDirectoryAPI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\DNNrocket\API\DNNrocketAPI.csproj">
+    <ProjectReference Include="..\..\..\..\DNNrocket\API\DNNrocketAPI.csproj">
       <Project>{2200f6c3-7d4b-4cdf-908f-dca37adfb121}</Project>
       <Name>DNNrocketAPI</Name>
     </ProjectReference>

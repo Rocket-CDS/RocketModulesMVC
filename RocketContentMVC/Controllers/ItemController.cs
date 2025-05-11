@@ -23,6 +23,21 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
+using System;
+using System.Linq;
+using System.Web.Mvc;
+using System.Web.Routing;
+using DotNetNuke.Collections;
+using DotNetNuke.Common;
+using DotNetNuke.Entities.Modules.Actions;
+using DotNetNuke.Web.Client;
+using DotNetNuke.Web.Mvc.Framework.ActionFilters;
+using DotNetNuke.Web.Mvc.Framework.Controllers;
+using Nevoweb.RocketContentMVC.PageContext;
+using DotNetNuke.Framework.JavaScriptLibraries;
+using System.Web.UI;
+using System.ComponentModel.Design;
+
 namespace Nevoweb.RocketContentMVC.Controllers
 {
     [DnnHandleError]
@@ -38,10 +53,22 @@ namespace Nevoweb.RocketContentMVC.Controllers
         public int _portalId;
         public HttpContextBase _context;
 
+        private IPageContext pageContext;
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);
             Url = new DnnUrlHelper(requestContext, this);
+
+            if (this.DnnPage == null && this.ControllerContext.IsChildAction)
+            {
+                // MVC pipeline
+                pageContext = new MvcPageContext(this);
+            }
+            else if (this.DnnPage != null)
+            {
+                // webform pipeline
+                pageContext = new WebFormsPageContext(this.DnnPage);
+            }
 
             _context = requestContext.HttpContext;
 
@@ -75,10 +102,27 @@ namespace Nevoweb.RocketContentMVC.Controllers
             var appThemeSystem = AppThemeUtils.AppThemeSystem(_portalId, _systemkey);
             var portalData = new PortalLimpet(_portalId);
             var appTheme = new AppThemeLimpet(_moduleSettings.PortalId, _moduleSettings.AppThemeAdminFolder, _moduleSettings.AppThemeAdminVersion, _moduleSettings.ProjectName);
-            DNNrocketUtils.InjectDependacies(_moduleRef, DnnPage, appTheme, _moduleSettings.ECOMode, PortalSettings.ActiveTab.SkinSrc, portalData.EngineUrlWithProtocol, appThemeSystem.AppThemeVersionFolderRel);
-            
+            var dependancyLists = DNNrocketUtils.InjectDependencies(_moduleRef, appTheme, _moduleSettings.ECOMode, PortalSettings.ActiveTab.SkinSrc, portalData.EngineUrlWithProtocol, appThemeSystem.AppThemeVersionFolderRel);
+            foreach (var dep in dependancyLists)
+            {
+                if (dep.ctrltype == "css")
+                {
+                    pageContext.RegisterStyleSheet(dep.url,FileOrder.Css.ModuleCss);
+                }
+                if (dep.ctrltype == "js")
+                {
+                    if (dep.url == "{jquery}")
+                    {
+                        // [TODO: how ?]
+                        //JavaScript.RequestRegistration(CommonJs.jQuery);
+                    }
+                    else
+                        pageContext.RegisterScript(dep.url,FileOrder.Js.DefaultPriority, "DnnPageHeaderProvider");
+                }
+            }
+
             var strHeader2 = RocketContentAPIUtils.DisplayView(_portalId, _systemkey, _moduleRef, "", _sessionParam, "viewlastheader.cshtml", "", _moduleSettings.DisableCache);
-            PageIncludes.IncludeTextInHeader(DnnPage, strHeader2);
+            pageContext.IncludeTextInHeader(strHeader2);
 
         }
 

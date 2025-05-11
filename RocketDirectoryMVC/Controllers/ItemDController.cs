@@ -11,24 +11,29 @@
 */
 
 using DNNrocketAPI.Components;
+using DotNetNuke.Web.Client;
 using DotNetNuke.Web.Mvc.Framework.ActionFilters;
 using DotNetNuke.Web.Mvc.Framework.Controllers;
 using DotNetNuke.Web.Mvc.Helpers;
 using Nevoweb.RocketDirectoryMVC.Components;
+using Nevoweb.RocketDirectoryMVC.PageContext;
 using Rocket.AppThemes.Components;
 using RocketDirectoryAPI.Components;
 using RocketPortal.Components;
 using Simplisity;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Nevoweb.RocketDirectoryMVC.Controllers
 {
     [DnnHandleError]
-    public class ItemController : DnnController
+    public class ItemDController : DnnController
     {
         public string _systemkey;
         public bool _hasEditAccess;
@@ -40,7 +45,7 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
         public int _portalId;
         public Dictionary<string, string> _urlparams;
         public HttpContextBase _context;
-
+        private IPageContext pageContext;
         protected override void Initialize(RequestContext requestContext)
         {
             try
@@ -48,6 +53,17 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
 
                 base.Initialize(requestContext);
                 Url = new DnnUrlHelper(requestContext, this);
+
+                if (this.DnnPage == null && this.ControllerContext.IsChildAction)
+                {
+                    // MVC pipeline
+                    pageContext = new MvcPageContext(this);
+                }
+                else if (this.DnnPage != null)
+                {
+                    // webform pipeline
+                    pageContext = new WebFormsPageContext(this.DnnPage);
+                }
 
                 _context = requestContext.HttpContext;
 
@@ -108,10 +124,51 @@ namespace Nevoweb.RocketDirectoryMVC.Controllers
                 var appThemeSystem = AppThemeUtils.AppThemeSystem(_portalId, _systemkey);
                 var portalData = new PortalLimpet(_portalId);
                 var appTheme = new AppThemeLimpet(_moduleSettings.PortalId, _moduleSettings.AppThemeAdminFolder, _moduleSettings.AppThemeAdminVersion, _moduleSettings.ProjectName);
-                DNNrocketUtils.InjectDependacies(_moduleRef, DnnPage, appTheme, _moduleSettings.ECOMode, PortalSettings.ActiveTab.SkinSrc, portalData.EngineUrlWithProtocol, appThemeSystem.AppThemeVersionFolderRel);
+
+                var dependancyLists = DNNrocketUtils.InjectDependencies(_moduleRef, appTheme, _moduleSettings.ECOMode, PortalSettings.ActiveTab.SkinSrc, portalData.EngineUrlWithProtocol, appThemeSystem.AppThemeVersionFolderRel);
+                foreach (var dep in dependancyLists)
+                {
+                    if (dep.ctrltype == "css")
+                    {
+                        pageContext.RegisterStyleSheet(dep.url, FileOrder.Css.ModuleCss);
+                    }
+                    if (dep.ctrltype == "js")
+                    {
+                        if (dep.url == "{jquery}")
+                        {
+                            // [TODO: how ?]
+                            //JavaScript.RequestRegistration(CommonJs.jQuery);
+                        }
+                        else
+                            pageContext.RegisterScript(dep.url, FileOrder.Js.DefaultPriority, "DnnPageHeaderProvider");
+                    }
+                }
+                var metaPageData = PagesUtils.GetMetaData(_tabId, _context.Request.Url, _urlparams);
+
+                var headerMeta = "";
+                if (!String.IsNullOrEmpty(metaPageData.AlternateLinkHtml)) headerMeta += metaPageData.AlternateLinkHtml;
+
+                if (metaPageData.Title != "") pageContext.Title = metaPageData.Title;
+                if (metaPageData.Description != "") pageContext.SetPageDescription(metaPageData.Description);
+
+                if (!String.IsNullOrEmpty(metaPageData.CanonicalLinkUrl)) headerMeta += "<link href=\"" + metaPageData.CanonicalLinkUrl + "\" rel=\"canonical\">";
+                foreach (var metaDict in metaPageData.HtmlMeta)
+                {
+                    string pattern = @"[^a-zA-Z0-9\-_.: ]";
+                    string sanitized = Regex.Replace(metaDict.Value, pattern, string.Empty);
+                    headerMeta += "<meta property=\"" + HttpUtility.HtmlAttributeEncode(metaDict.Key) + "\" content=\"" + HttpUtility.HtmlAttributeEncode(sanitized) + "\">";
+                }
+                pageContext.IncludeTextInHeader(headerMeta);
+                
+                foreach (var sPattern in metaPageData.CssRemovalPattern)
+                {
+                    //[TODO: Remove the required CSS]
+                    //if (sPattern != "" && !UserUtils.IsAdministrator()) PageIncludes.RemoveCssFile(this.Page, sPattern);
+                }
+
 
                 var strHeader2 = RocketDirectoryAPIUtils.ViewHeader(_portalId, _systemkey, _moduleRef, _sessionParam, "viewlastheader.cshtml");
-                PageIncludes.IncludeTextInHeader(DnnPage, strHeader2);
+                pageContext.IncludeTextInHeader(strHeader2);
 
                 if (_hasEditAccess)
                 {

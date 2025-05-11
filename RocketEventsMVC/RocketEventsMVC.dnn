@@ -52,7 +52,7 @@
                 <moduleControls>
                   <moduleControl>
                     <controlKey />
-                    <controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/Item/Index.mvc</controlSrc>
+                    <controlSrc>Nevoweb.RocketDirectoryMVC.Controllers/ItemD/Index.mvc</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
                     <controlTitle />
                     <controlType>View</controlType>
