@@ -50,6 +50,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketNewsMVC", "RocketNews
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketEventsMVC", "RocketEventsMVC\RocketEventsMVC.csproj", "{5D8AC718-26DF-48EC-B5EA-87C3BC58AEBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketFormMVC", "RocketFormMVC\RocketFormMVC.csproj", "{33783AE1-1265-4211-8BD4-1A5156FA48F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Comp All Debug|Any CPU = Comp All Debug|Any CPU
@@ -217,6 +219,16 @@ Global
 		{5D8AC718-26DF-48EC-B5EA-87C3BC58AEBD}.Razor|Any CPU.Build.0 = Debug|Any CPU
 		{5D8AC718-26DF-48EC-B5EA-87C3BC58AEBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D8AC718-26DF-48EC-B5EA-87C3BC58AEBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33783AE1-1265-4211-8BD4-1A5156FA48F0}.Comp All Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{33783AE1-1265-4211-8BD4-1A5156FA48F0}.Comp All Debug|Any CPU.Build.0 = Release|Any CPU
+		{33783AE1-1265-4211-8BD4-1A5156FA48F0}.Comp All Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33783AE1-1265-4211-8BD4-1A5156FA48F0}.Comp All Release|Any CPU.Build.0 = Release|Any CPU
+		{33783AE1-1265-4211-8BD4-1A5156FA48F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33783AE1-1265-4211-8BD4-1A5156FA48F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33783AE1-1265-4211-8BD4-1A5156FA48F0}.Razor|Any CPU.ActiveCfg = Debug|Any CPU
+		{33783AE1-1265-4211-8BD4-1A5156FA48F0}.Razor|Any CPU.Build.0 = Debug|Any CPU
+		{33783AE1-1265-4211-8BD4-1A5156FA48F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33783AE1-1265-4211-8BD4-1A5156FA48F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

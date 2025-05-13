@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketFormMVC", "RocketFormMVC.csproj", "{515CDFDB-002B-4A38-82A4-659D41C3FEE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNNrocketAPI", "..\..\..\DNNrocket\API\DNNrocketAPI.csproj", "{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketFormAPI", "..\..\..\DNNRocketModules\RocketFormAPI\RocketFormAPI.csproj", "{A7DCFF90-BDAB-0635-DC64-5F2CDC5419B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplisity", "..\..\..\DNNrocket\Simplisity\Simplisity.csproj", "{C6743250-F63F-C977-814C-228ED35FA1C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppThemes", "..\..\..\DNNrocket\RocketAppTheme\AppThemes.csproj", "{16D36350-2CF4-B919-3F14-8FDBC1991785}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketPortal", "..\..\..\DNNrocket\RocketPortal\RocketPortal.csproj", "{128ECA2A-6F15-15D2-5021-6A59E80BF63E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{515CDFDB-002B-4A38-82A4-659D41C3FEE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{515CDFDB-002B-4A38-82A4-659D41C3FEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7DCFF90-BDAB-0635-DC64-5F2CDC5419B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DCFF90-BDAB-0635-DC64-5F2CDC5419B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DCFF90-BDAB-0635-DC64-5F2CDC5419B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DCFF90-BDAB-0635-DC64-5F2CDC5419B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6743250-F63F-C977-814C-228ED35FA1C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6743250-F63F-C977-814C-228ED35FA1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6743250-F63F-C977-814C-228ED35FA1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6743250-F63F-C977-814C-228ED35FA1C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D36350-2CF4-B919-3F14-8FDBC1991785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D36350-2CF4-B919-3F14-8FDBC1991785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D36350-2CF4-B919-3F14-8FDBC1991785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D36350-2CF4-B919-3F14-8FDBC1991785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{128ECA2A-6F15-15D2-5021-6A59E80BF63E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{128ECA2A-6F15-15D2-5021-6A59E80BF63E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{128ECA2A-6F15-15D2-5021-6A59E80BF63E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{128ECA2A-6F15-15D2-5021-6A59E80BF63E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {836F9207-5501-482C-ABF1-6E3020288FE8}
+	EndGlobalSection
+EndGlobal
